@@ -1,10 +1,7 @@
 const pokeContainer = document.getElementById("poke-container");
 const pokeForm = document.getElementById("poke-form");
 
-const pokeCard = document.getElementById('poke-1')
-console.log(pokeCard)
-
-function renderPokemon(pokemon){
+function renderPokemon(pokemon) {
   const pokeCard = document.createElement("div");
   pokeCard.id = `poke-${pokemon.id}`;
   pokeCard.className = "poke-card";
@@ -34,23 +31,19 @@ function renderPokemon(pokemon){
   deleteBttn.addEventListener("click", () => deletePoke(pokeCard));
 
   pokeCard.append(pokeImg, pokeName, pokeLikes, likesNum, likeBttn, deleteBttn);
-
   pokeContainer.appendChild(pokeCard);
 }
 
 function createPokemon(event) {
   event.preventDefault();
-
   let pokeName = pokeForm.querySelector("#name-input").value;
   let pokeImg = pokeForm.querySelector("#img-input").value;
-
   let pokemon = {
     id: 7, // needs to change
     name: pokeName,
     img: pokeImg,
     likes: 0,
   };
-
   renderPokemon(pokemon);
   pokeForm.reset();
 }
@@ -60,36 +53,12 @@ function increaseLike(pokemon, likesElement) {
   likesElement.textContent = pokemon.likes;
 }
 
-function deletePoke() {
+function deletePoke(pokeCard) {
   pokeCard.remove();
 }
 
 function init() {
-  getPokemon();
   pokeForm.addEventListener("submit", createPokemon);
 }
 
 init();
-
-
-function getPokemon() {
-  fetch("http://localhost:3000/pokemon")
-    .then((resp) => resp.json
-    .then((pokemons) => {
-      pokemons.forEach(renderPokemon)
-    });
-}
-
-// fetch("http://localhost:3000/pokemon")
-// .then((resp) => resp.json())
-// .then((pokemons) => {
-//   pokemons.characters.forEach(renderPokemon)
-// });
-
-// document.addEventListener('DOMContentLoaded', () => {
-//   fetch("http://localhost:3000/pokemon")
-//   .then((resp) => resp.json())
-//   .then((pokemons) => {
-//     pokemons.characters.forEach(renderPokemon)
-//   });
-// })
