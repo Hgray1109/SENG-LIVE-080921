@@ -6,6 +6,16 @@
 - Explain the difference between optimistic and pessimistic rendering
 - Explain the difference between each HTTP method
 
+### Warm up:
+What are the 4 popular HTTP verbs used in request-response cycles, and their associated actions
+
+- GET - retrieving of resources from a endpoint 
+- POST - create data that is sent to the server
+- PUT/PATCH - update a resource 
+- DELETE - delete an entire resource 
+
+CRUD actions: create, read, update and delete
+
 To use the mock-API:
 First install JSON Server: `npm install -g json-server`
 To start the server run `json-server --watch db.json`
