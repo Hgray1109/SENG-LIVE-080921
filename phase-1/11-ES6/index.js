@@ -1,6 +1,3 @@
-// This current code base is written in mostly pre-ES6 syntax.
-// Modernize the code and clean it up by utilizing ES6 Syntax
-
 const pokeContainer = document.getElementById("poke-container");
 const pokeForm = document.getElementById("poke-form");
 const formDiv = document.getElementById("comments-form");
@@ -69,6 +66,7 @@ function increaseLike(pokemon, likesElement) {
     },
     body: JSON.stringify({ likes: pokemon.likes }),
   });
+
 }
 
 function deletePoke(pokeCard, pokemon) {
@@ -119,7 +117,6 @@ function createCommentForm() {
   submit.type = "submit";
   submit.id = "submit";
   submit.value = "Create Comment";
-
   commentForm.append(contentInput, submit);
   formDiv.appendChild(commentForm);
 }
